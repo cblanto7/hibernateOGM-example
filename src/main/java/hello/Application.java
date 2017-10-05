@@ -40,6 +40,8 @@ public class Application {
       em.persist(buisness);
       Customer dina = new Customer();
       dina.setFirstName("Dina");
+      ObjectId x = new ObjectId();
+      dina.setId(x);
       dina.setCustomerGroup(buisness);
       em.persist(dina);
       ObjectId dinaId = dina.getId();
