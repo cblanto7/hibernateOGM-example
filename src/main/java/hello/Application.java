@@ -10,8 +10,8 @@ package hello;
 import hello.CustomerGroup;
 import hello.Customer;
 import org.bson.types.ObjectId;
-import org.hibernate.ogm.util.impl.Log;
-import org.hibernate.ogm.util.impl.LoggerFactory;
+//import org.hibernate.ogm.util.impl.Log;
+//import org.hibernate.ogm.util.impl.LoggerFactory;
 
 
 import javax.persistence.EntityManager;
@@ -21,7 +21,7 @@ import javax.transaction.TransactionManager;
 
 public class Application {
 
-  private static final Log logger = LoggerFactory.make();
+  //private static final Log logger = LoggerFactory.make();
 
   public static void main(String[] args) {
 
@@ -33,7 +33,7 @@ public class Application {
     //Persist entities the way you are used to in plain JPA
     try {
       tm.begin();
-      logger.infof("About to store Customer and CustomerGroup");
+      //logger.infof("About to store Customer and CustomerGroup");
       EntityManager em = emf.createEntityManager();
       CustomerGroup buisness = new CustomerGroup();
       buisness.setName("Comcast");
@@ -48,11 +48,11 @@ public class Application {
       tm.commit();
 
       //Retrieve your entities the way you are used to in plain JPA
-      logger.infof("About to retrieve Customer and CustomerGroup");
+      //logger.infof("About to retrieve Customer and CustomerGroup");
       tm.begin();
       em = emf.createEntityManager();
       dina = em.find(Customer.class, dinaId);
-      logger.infof("Found Customer %s of CustomerGroup %s", dina.getFirstName(), dina.getCustomerGroup().getName());
+      //logger.infof("Found Customer %s of CustomerGroup %s", dina.getFirstName(), dina.getCustomerGroup().getName());
       em.flush();
       em.close();
       tm.commit();
